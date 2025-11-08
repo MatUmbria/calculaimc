@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.text.NumberFormat
 import java.util.Locale
-import kotlin.math.pow
+import bf.edu.utfpr.calculaimc.util.calcularImc
 
 class MainActivity : AppCompatActivity() {
 
@@ -85,16 +85,7 @@ class MainActivity : AppCompatActivity() {
         tvResultado.text = nf.format( resultado )
     }
 
-    private fun calcularImc(peso: Double, altura: Double, locale:String): Double {
 
-        if ( locale.equals( "en", ignoreCase = true ) ) {
-            return 703 * ( peso / altura.pow(2.0))
-        } else {
-            return  ( peso / altura.pow(2.0))
-        }
-
-        val resultado = peso / altura.pow( 2.0 )
-    }
 
     private fun btLimparOnClick() {
         etPeso.setText( "" )
@@ -104,6 +95,8 @@ class MainActivity : AppCompatActivity() {
         etAltura.error = null
         etPeso.requestFocus()
     }
+
+
 
 }//fim da MainActivity
 
